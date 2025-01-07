@@ -4,8 +4,8 @@ using proyectoef;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
-
+//builder.Services.AddDbContext<TareasContext>(p => p.UseInMemoryDatabase("TareasDB"));
+builder.Services.AddNpgsql<TareasContext>("Host=localhost;Port=5432;Database=TareasDb;Username=nico;Password=admin123");
 var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
